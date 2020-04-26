@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  APIAPP:
+    build:
+      context: .
+      dockerfile: Dockerfile-wrapper
+    image: mywrapper
+    ports: 
+      - 5000:5000
+    networks: 
+      - apinet
+    environment: 
+      - HOSTURL= ''
+      - GRANTTYPE= 'password'
+      - CLIENTID= ''
+      - CLIENTSECRET= ''
+      - ENV= ''
+    volumes: 
+      - ./:/home/flaskapp
+
+
+
+networks: 
+  apinet:
